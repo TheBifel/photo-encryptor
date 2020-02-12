@@ -1,5 +1,6 @@
 package dev.bifel.photoencryptor.global.base
 
+import android.content.Context
 import androidx.fragment.app.Fragment
 import dev.bifel.photoencryptor.MainActivity
 import dev.bifel.photoencryptor.global.pagenavigation.Navigator
@@ -21,4 +22,11 @@ open class NavigableFragment : Fragment() {
     }
 
     fun onShow() {}
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        provideDI()
+    }
+
+    fun provideDI() {}
 }

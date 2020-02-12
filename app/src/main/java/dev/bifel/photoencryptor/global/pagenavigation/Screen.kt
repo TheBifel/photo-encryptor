@@ -2,7 +2,7 @@ package dev.bifel.photoencryptor.global.pagenavigation
 
 import androidx.fragment.app.Fragment
 import dev.bifel.photoencryptor.global.base.NavigableFragment
-import dev.bifel.photoencryptor.page.MainFragment
+import dev.bifel.photoencryptor.page.PictureFragment
 
 /**
  * Date: 12.02.2020
@@ -11,13 +11,13 @@ import dev.bifel.photoencryptor.page.MainFragment
  * @author Bohdan Ishchenko
  */
 enum class Screen(val fragment: NavigableFragment) {
-    MAIN(MainFragment())
+    MAIN(PictureFragment())
     ;
 
     companion object {
         fun getScreen(fragment: Fragment): Screen? =
             when (fragment) {
-                is MainFragment -> MAIN
+                is PictureFragment -> MAIN
                 else -> null
             }
     }
