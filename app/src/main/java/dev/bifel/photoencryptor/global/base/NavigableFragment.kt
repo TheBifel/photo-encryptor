@@ -17,7 +17,7 @@ open class NavigableFragment : Fragment() {
         get() = MainActivity.navigator
             ?: throw NullPointerException("Page navigator is not initialized")
 
-    fun onBackPressed() {
+    open fun onBackPressed() {
         navigator.pop()
     }
 
@@ -28,5 +28,5 @@ open class NavigableFragment : Fragment() {
         provideDI()
     }
 
-    fun provideDI() {}
+    open fun provideDI() {}
 }

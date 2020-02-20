@@ -1,8 +1,6 @@
 package dev.bifel.photoencryptor.global.extentions
 
 import android.content.Context
-import dev.bifel.photoencryptor.model.entity.Picture
-import java.io.File
 
 /**
  * Date: 13.02.2020
@@ -11,4 +9,4 @@ import java.io.File
  * @author Bohdan Ishchenko
  */
 
-fun Context.getFile(picture: Picture): File = picture.file
+fun Context.getInputStream(filename: String) = assets.open(filename)

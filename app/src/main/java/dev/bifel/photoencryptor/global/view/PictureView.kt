@@ -7,7 +7,6 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.github.chrisbanes.photoview.PhotoView
 import dev.bifel.photoencryptor.R
-import dev.bifel.photoencryptor.global.extentions.getFile
 import dev.bifel.photoencryptor.model.entity.Picture
 
 class PictureView : PhotoView {
@@ -21,7 +20,6 @@ class PictureView : PhotoView {
         @JvmStatic
         fun setPicture(view: PictureView, picture: Picture?) = picture?.let { view.setPicture(it) }
     }
-
 
     init {
         isZoomable = true
@@ -37,7 +35,7 @@ class PictureView : PhotoView {
             }
 
         Glide.with(context)
-            .load(context.getFile(picture))
+            .load(picture.file)
             .placeholder(drawable)
             .error(R.drawable.ic_error)
             .placeholder(drawable)
