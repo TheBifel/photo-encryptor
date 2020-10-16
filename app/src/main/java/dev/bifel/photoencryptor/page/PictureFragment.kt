@@ -3,11 +3,13 @@ package dev.bifel.photoencryptor.page
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import dev.bifel.photoencryptor.databinding.FragmentPictureBinding
 import dev.bifel.photoencryptor.global.base.NavigableFragment
-import dev.bifel.photoencryptor.global.extentions.addOnChangeListenerIgnoreNull
+import dev.bifel.photoencryptor.global.extentions.addOnChangeListener
+import kotlinx.android.synthetic.main.fragment_picture.*
 
 /**
  * Date: 12.02.2020
@@ -30,14 +32,16 @@ class PictureFragment : NavigableFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return FragmentPictureBinding.inflate(inflater, container, false).also { binding = it }.root
-    }
+    ): View = FragmentPictureBinding.inflate(inflater, container, false).also { binding = it }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
         viewModel.init()
-        viewModel.bitmap.addOnChangeListenerIgnoreNull { binding.img.setImageBitmap(it) }
+        viewModel.bitmap.addOnChangeListener {
+            progress.visibility = GONE
+            img.setImageBitmap(it)
+        }
     }
 }
 

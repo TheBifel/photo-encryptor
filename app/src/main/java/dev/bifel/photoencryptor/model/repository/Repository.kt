@@ -1,5 +1,7 @@
 package dev.bifel.photoencryptor.model.repository
 
+import android.graphics.Bitmap
+
 /**
  * Date: 20.02.2020
  * Time: 21:48
@@ -8,5 +10,9 @@ package dev.bifel.photoencryptor.model.repository
  */
 interface Repository {
 
-    suspend fun xorWithNoise(bytes: ByteArray, password: String, progress: (Int) -> Unit)
+    suspend fun getNoisedBitmap(
+        source: Bitmap,
+        noiseSeed: String,
+        progressListener: suspend (Int) -> Unit
+    ): Bitmap
 }

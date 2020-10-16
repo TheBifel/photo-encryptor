@@ -3,6 +3,8 @@ package dev.bifel.photoencryptor.page
 import android.graphics.Bitmap
 import androidx.databinding.ObservableField
 import dev.bifel.photoencryptor.global.base.BaseViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.koin.standalone.inject
 
 /**
@@ -12,14 +14,18 @@ import org.koin.standalone.inject
  * @author Bohdan Ishchenko
  */
 class PictureViewModel : BaseViewModel() {
-    private val useCase = inject<PictureUseCase>()
+    private val useCase by inject<PictureUseCase>()
 
     val bitmap = ObservableField<Bitmap>()
+    val process = ObservableField<String>()
 
     fun init() {
         execute({
-            val encrypted = useCase.value.getEncrypted("test") {}
-            useCase.value.getDecrypted("test", encrypted) {}
+            useCase.getEncrypted("test") {
+                withContext(Dispatchers.Main) {
+                    process.set("$it%")
+                }
+            }
         }, {
             bitmap.set(it)
         })

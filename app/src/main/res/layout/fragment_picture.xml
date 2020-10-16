@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,8 +9,22 @@
             type="dev.bifel.photoencryptor.page.PictureViewModel" />
     </data>
 
-    <dev.bifel.photoencryptor.global.view.PictureView
-        android:id="@+id/img"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <dev.bifel.photoencryptor.global.view.PictureView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{viewModel.process}"
+            android:textColor="@color/colorPrimary"
+            tools:text="10%" />
+    </FrameLayout>
 </layout>

@@ -13,19 +13,16 @@ import dev.bifel.photoencryptor.global.extentions.getInputStream
  */
 class PictureUseCase : BaseUseCase() {
 
-    suspend fun getEncrypted(password: String, progress: (Int) -> Unit): ByteArray {
-        val stream = context.getInputStream("cat.jpg")
-        val bytes = stream.readBytes()
-        repository.xorWithNoise(bytes, password, progress)
-        return bytes
-    }
+    suspend fun getEncrypted(
+        noiseSeed: String,
+        progressListener: suspend (Int) -> Unit = {}
+    ): Bitmap? {
+        val stream = context.getInputStream("cat.png")
 
-    suspend fun getDecrypted(
-        password: String,
-        bytes: ByteArray,
-        progress: (Int) -> Unit
-    ): Bitmap {
-        repository.xorWithNoise(bytes, password, progress)
-        return BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+        return repository.getNoisedBitmap(
+            BitmapFactory.decodeStream(stream),
+            noiseSeed,
+            progressListener
+        )
     }
 }
