@@ -1,6 +1,5 @@
 package dev.bifel.photoencryptor.di
 
-import dev.bifel.photoencryptor.model.repository.Repository
 import dev.bifel.photoencryptor.model.repository.RepositoryImpl
 import dev.bifel.photoencryptor.page.PictureUseCase
 import org.koin.dsl.module.applicationContext
@@ -13,7 +12,7 @@ import org.koin.dsl.module.applicationContext
  */
 
 val repositoryModule = applicationContext {
-    bean { RepositoryImpl() as Repository }
+    bean { RepositoryImpl() }
 }
 
 val useCaseModule = applicationContext {
