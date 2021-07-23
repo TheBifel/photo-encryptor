@@ -2,8 +2,8 @@ package dev.bifel.photoencryptor.global.base
 
 import android.content.Context
 import dev.bifel.photoencryptor.model.repository.Repository
-import org.koin.standalone.KoinComponent
-import org.koin.standalone.inject
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
 abstract class BaseUseCase : KoinComponent {
 

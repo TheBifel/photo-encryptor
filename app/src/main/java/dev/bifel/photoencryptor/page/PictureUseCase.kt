@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import dev.bifel.photoencryptor.global.base.BaseUseCase
 import dev.bifel.photoencryptor.global.extentions.getInputStream
+import org.koin.core.KoinComponent
 
 /**
  * Date: 20.02.2020
@@ -11,7 +12,7 @@ import dev.bifel.photoencryptor.global.extentions.getInputStream
  *
  * @author Bohdan Ishchenko
  */
-class PictureUseCase : BaseUseCase() {
+class PictureUseCase : BaseUseCase(), KoinComponent {
 
     suspend fun getEncrypted(
         noiseSeed: String,

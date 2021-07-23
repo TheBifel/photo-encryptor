@@ -24,7 +24,7 @@ class PictureFragment : NavigableFragment() {
 
     override fun provideDI() {
         super.provideDI()
-        viewModel = ViewModelProvider.AndroidViewModelFactory(activity!!.application)
+        viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
             .create(PictureViewModel::class.java)
     }
 

@@ -2,7 +2,7 @@ package dev.bifel.photoencryptor.global.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
-import org.koin.standalone.KoinComponent
+import org.koin.core.KoinComponent
 
 /**
  * Date: 20.02.2020
