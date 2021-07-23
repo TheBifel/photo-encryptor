@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Photoencryptor</string>
+    <string name="pick_zip">Pick zip!</string>
+    <string name="change_zip">Change zip!</string>
+    <string name="error">Error</string>
+    <string name="next">Next</string>
 </resources>

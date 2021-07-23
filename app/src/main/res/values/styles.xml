@@ -6,4 +6,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ButtonPrimary">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="TextPrimary">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
 </resources>

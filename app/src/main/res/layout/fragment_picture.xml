@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="dev.bifel.photoencryptor.page.PictureViewModel" />
+            type="dev.bifel.photoencryptor.page.picture.PictureViewModel" />
     </data>
 
     <FrameLayout

@@ -11,7 +11,7 @@ import dev.bifel.photoencryptor.global.pagenavigation.Navigator
  *
  * @author Bohdan Ishchenko
  */
-open class NavigableFragment : Fragment() {
+abstract class NavigableFragment : Fragment() {
 
     protected val navigator: Navigator
         get() = MainActivity.navigator

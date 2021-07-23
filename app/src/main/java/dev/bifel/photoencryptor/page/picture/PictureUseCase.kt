@@ -1,4 +1,4 @@
-package dev.bifel.photoencryptor.page
+package dev.bifel.photoencryptor.page.picture
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -17,7 +17,7 @@ class PictureUseCase : BaseUseCase(), KoinComponent {
     suspend fun getEncrypted(
         noiseSeed: String,
         progressListener: suspend (Int) -> Unit = {}
-    ): Bitmap? {
+    ): Bitmap {
         val stream = context.getInputStream("cat.png")
 
         return repository.getNoisedBitmap(

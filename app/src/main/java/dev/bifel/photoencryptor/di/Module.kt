@@ -2,7 +2,8 @@ package dev.bifel.photoencryptor.di
 
 import dev.bifel.photoencryptor.model.repository.Repository
 import dev.bifel.photoencryptor.model.repository.RepositoryImpl
-import dev.bifel.photoencryptor.page.PictureUseCase
+import dev.bifel.photoencryptor.page.pickfile.PickFileUseCase
+import dev.bifel.photoencryptor.page.picture.PictureUseCase
 import org.koin.dsl.module
 
 /**
@@ -18,4 +19,5 @@ val repositoryModule = module {
 
 val useCaseModule = module {
     single { PictureUseCase() }
+    single { PickFileUseCase() }
 }

@@ -3,7 +3,7 @@ package dev.bifel.photoencryptor
 import android.os.Bundle
 import dev.bifel.photoencryptor.global.base.BaseActivity
 import dev.bifel.photoencryptor.global.pagenavigation.Navigator
-import dev.bifel.photoencryptor.global.pagenavigation.Screen.MAIN
+import dev.bifel.photoencryptor.global.pagenavigation.Screen
 
 /**
  * Date: 12.02.2020
@@ -20,7 +20,12 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        navigator = Navigator(savedInstanceState, supportFragmentManager, R.id.container, MAIN)
+        navigator = Navigator(
+            savedInstanceState,
+            supportFragmentManager,
+            R.id.container,
+            Screen.initialScreen
+        )
     }
 
     override fun onBackPressed() {

@@ -1,4 +1,4 @@
-package dev.bifel.photoencryptor.page
+package dev.bifel.photoencryptor.page.picture
 
 import android.graphics.Bitmap
 import androidx.databinding.ObservableField
