@@ -14,4 +14,8 @@
         <item name="android:textColor">@color/colorTextPrimary</item>
     </style>
 
+    <style name="InputPrimary">
+
+    </style>
+
 </resources>

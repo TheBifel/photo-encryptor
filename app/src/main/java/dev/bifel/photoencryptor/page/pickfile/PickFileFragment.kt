@@ -41,11 +41,7 @@ class PickFileFragment : NavigableFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-        btnAction.setOnClickListener {
-            getFileLauncher.launch("application/zip")
-        }
-        btnNext.setOnClickListener {
-            navigator.add(Screen.PICTURE)
-        }
+        btnAction.setOnClickListener { getFileLauncher.launch("application/zip") }
+        btnNext.setOnClickListener { navigator.add(Screen.PASSWORD) }
     }
 }

@@ -2,6 +2,7 @@ package dev.bifel.photoencryptor.global.pagenavigation
 
 import androidx.fragment.app.Fragment
 import dev.bifel.photoencryptor.global.base.NavigableFragment
+import dev.bifel.photoencryptor.page.enterpassword.PasswordFragment
 import dev.bifel.photoencryptor.page.pickfile.PickFileFragment
 import dev.bifel.photoencryptor.page.picture.PictureFragment
 
@@ -12,8 +13,9 @@ import dev.bifel.photoencryptor.page.picture.PictureFragment
  * @author Bohdan Ishchenko
  */
 enum class Screen(val fragment: NavigableFragment) {
-    PICTURE(PictureFragment()),
     PICK_FILE(PickFileFragment()),
+    PASSWORD(PasswordFragment()),
+    PICTURE(PictureFragment()),
     ;
 
     companion object {
@@ -21,6 +23,7 @@ enum class Screen(val fragment: NavigableFragment) {
             when (fragment) {
                 is PictureFragment -> PICTURE
                 is PickFileFragment -> PICK_FILE
+                is PasswordFragment -> PASSWORD
                 else -> null
             }
 
