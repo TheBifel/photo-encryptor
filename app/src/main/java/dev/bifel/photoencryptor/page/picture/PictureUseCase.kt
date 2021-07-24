@@ -20,7 +20,7 @@ class PictureUseCase : BaseUseCase(), KoinComponent {
     ): Bitmap {
         val stream = context.getInputStream("cat.png")
 
-        return repository.getNoisedBitmap(
+        return security.getNoisedBitmap(
             BitmapFactory.decodeStream(stream),
             noiseSeed,
             progressListener

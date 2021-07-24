@@ -1,4 +1,4 @@
-package dev.bifel.photoencryptor.model.repository
+package dev.bifel.photoencryptor.model.repository.sequrity
 
 import android.graphics.Bitmap
 import org.koin.core.KoinComponent
@@ -6,7 +6,7 @@ import java.nio.ByteBuffer
 import kotlin.experimental.xor
 import kotlin.random.Random
 
-class RepositoryImpl : Repository, KoinComponent {
+class SecurityImpl : Security, KoinComponent {
 
     private suspend fun xorWithNoise(
         bytes: ByteArray,

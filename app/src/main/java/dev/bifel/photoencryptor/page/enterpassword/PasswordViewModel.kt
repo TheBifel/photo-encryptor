@@ -8,7 +8,26 @@ import org.koin.core.inject
 class PasswordViewModel : BaseViewModel(), KoinComponent {
     private val useCase by inject<PasswordUseCase>()
 
-    val path = ObservableField<String>()
-    val isNextAvailable = ObservableField(false)
+    val password = ObservableField<String?>()
+    val passwordError = ObservableField<String>()
+    val isLoading = ObservableField<Boolean>()
+
+    fun checkPassword(onSuccess: () -> Unit) {
+        isLoading.set(true)
+        execute({
+            useCase.isZipAccessible(password.get()?.takeIf { it.isNotEmpty() })
+        }, callback = {
+            if (it) {
+                passwordError.set("")
+                onSuccess()
+            } else {
+                passwordError.set(useCase.getErrorText())
+            }
+        }, onComplete = {
+            isLoading.set(false)
+        })
+
+
+    }
 
 }

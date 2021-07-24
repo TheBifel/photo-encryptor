@@ -1,4 +1,4 @@
-package dev.bifel.photoencryptor.model.repository
+package dev.bifel.photoencryptor.model.repository.sequrity
 
 import android.graphics.Bitmap
 import org.koin.core.KoinComponent
@@ -9,7 +9,7 @@ import org.koin.core.KoinComponent
  *
  * @author Bohdan Ishchenko
  */
-interface Repository : KoinComponent {
+interface Security : KoinComponent {
 
     suspend fun getNoisedBitmap(
         source: Bitmap,

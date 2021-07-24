@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import dev.bifel.photoencryptor.R
 import dev.bifel.photoencryptor.databinding.FragmentPasswordBinding
 import dev.bifel.photoencryptor.global.base.NavigableFragment
+import dev.bifel.photoencryptor.global.pagenavigation.Screen
 import kotlinx.android.synthetic.main.fragment_password.*
 
 
@@ -45,6 +46,9 @@ class PasswordFragment : NavigableFragment() {
                 if (btnShowPassword.isSelected) PasswordTransformationMethod() else DoNothingTransformation()
             btnShowPassword.setImageResource(if (btnShowPassword.isSelected) R.drawable.ic_invisible else R.drawable.ic_visible)
             btnShowPassword.isSelected = !btnShowPassword.isSelected
+        }
+        btnNext.setOnClickListener {
+            viewModel.checkPassword { navigator.add(Screen.PICTURE) }
         }
     }
 

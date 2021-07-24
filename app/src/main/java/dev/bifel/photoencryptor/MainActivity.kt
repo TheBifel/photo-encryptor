@@ -29,9 +29,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
         if (navigator?.isRoot != true) {
             navigator?.current?.onBackPressed()
+        } else {
+            super.onBackPressed()
         }
     }
 }

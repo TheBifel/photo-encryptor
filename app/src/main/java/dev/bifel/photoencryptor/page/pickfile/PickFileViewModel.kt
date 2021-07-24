@@ -5,7 +5,6 @@ import androidx.databinding.ObservableField
 import dev.bifel.photoencryptor.global.base.BaseViewModel
 import org.koin.core.KoinComponent
 import org.koin.core.inject
-import java.io.File
 
 class PickFileViewModel : BaseViewModel(), KoinComponent {
     private val useCase by inject<PickFileUseCase>()
@@ -15,8 +14,11 @@ class PickFileViewModel : BaseViewModel(), KoinComponent {
     val isNextAvailable = ObservableField(false)
 
     fun setUri(uri: Uri?) {
-        path.set(uri?.path?.let { File(it).absolutePath } ?: useCase.getErrorText())
+        path.set(uri?.path ?: useCase.getErrorText())
         actionText.set(useCase.getActionText(uri != null))
         isNextAvailable.set(uri != null)
+        if (uri != null) {
+            useCase.setZipFile(uri)
+        }
     }
 }

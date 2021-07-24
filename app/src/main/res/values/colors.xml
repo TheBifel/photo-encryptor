@@ -6,4 +6,5 @@
 
     <color name="colorTextPrimary">#E6E6E6</color>
     <color name="colorTextHint">#C8C8C8</color>
+    <color name="colorError">#F44336</color>
 </resources>

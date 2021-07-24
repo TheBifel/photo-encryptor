@@ -29,7 +29,9 @@ class PickFileFragment : NavigableFragment() {
         viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
             .create(PickFileViewModel::class.java)
         getFileLauncher =
-            registerForActivityResult(ActivityResultContracts.GetContent(), viewModel::setUri)
+            registerForActivityResult(ActivityResultContracts.GetContent()) {
+                viewModel.setUri(it)
+            }
     }
 
     override fun onCreateView(
@@ -41,7 +43,7 @@ class PickFileFragment : NavigableFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-        btnAction.setOnClickListener { getFileLauncher.launch("application/zip") }
+        btnAction.setOnClickListener { getFileLauncher.launch("*/*") }
         btnNext.setOnClickListener { navigator.add(Screen.PASSWORD) }
     }
 }

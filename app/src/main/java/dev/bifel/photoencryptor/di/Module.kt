@@ -1,7 +1,12 @@
+@file:Suppress("USELESS_CAST")
+
 package dev.bifel.photoencryptor.di
 
-import dev.bifel.photoencryptor.model.repository.Repository
-import dev.bifel.photoencryptor.model.repository.RepositoryImpl
+import dev.bifel.photoencryptor.model.repository.cashe.Cache
+import dev.bifel.photoencryptor.model.repository.cashe.CacheImpl
+import dev.bifel.photoencryptor.model.repository.sequrity.Security
+import dev.bifel.photoencryptor.model.repository.sequrity.SecurityImpl
+import dev.bifel.photoencryptor.page.enterpassword.PasswordUseCase
 import dev.bifel.photoencryptor.page.pickfile.PickFileUseCase
 import dev.bifel.photoencryptor.page.picture.PictureUseCase
 import org.koin.dsl.module
@@ -14,10 +19,12 @@ import org.koin.dsl.module
  */
 
 val repositoryModule = module {
-    single { RepositoryImpl() as Repository }
+    single { SecurityImpl() as Security }
+    single { CacheImpl() as Cache }
 }
 
 val useCaseModule = module {
     single { PictureUseCase() }
     single { PickFileUseCase() }
+    single { PasswordUseCase() }
 }
