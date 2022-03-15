@@ -8,10 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import dev.bifel.photoencryptor.R
 import dev.bifel.photoencryptor.databinding.FragmentPasswordBinding
 import dev.bifel.photoencryptor.global.base.NavigableFragment
-import dev.bifel.photoencryptor.global.pagenavigation.Screen
 import kotlinx.android.synthetic.main.fragment_password.*
 
 
@@ -48,7 +48,9 @@ class PasswordFragment : NavigableFragment() {
             btnShowPassword.isSelected = !btnShowPassword.isSelected
         }
         btnNext.setOnClickListener {
-            viewModel.checkPassword { navigator.add(Screen.PICTURE) }
+            viewModel.checkPassword {
+                findNavController().navigate(PasswordFragmentDirections.actionPasswordFragmentToPictureFragment())
+            }
         }
     }
 

@@ -1,3 +1,4 @@
+
 buildscript {
     repositories {
         google()
@@ -7,6 +8,8 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:7.1.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+        val navVersion = "2.4.1"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion")
     }
 }
 

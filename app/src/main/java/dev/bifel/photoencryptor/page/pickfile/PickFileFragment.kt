@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import dev.bifel.photoencryptor.databinding.FragmentPickFileBinding
 import dev.bifel.photoencryptor.global.base.NavigableFragment
-import dev.bifel.photoencryptor.global.pagenavigation.Screen
 import kotlinx.android.synthetic.main.fragment_pick_file.*
 
 /**
@@ -44,6 +44,8 @@ class PickFileFragment : NavigableFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         btnAction.setOnClickListener { getFileLauncher.launch("*/*") }
-        btnNext.setOnClickListener { navigator.add(Screen.PASSWORD) }
+        btnNext.setOnClickListener {
+            findNavController().navigate(PickFileFragmentDirections.actionPickFileFragmentToPasswordFragment())
+        }
     }
 }

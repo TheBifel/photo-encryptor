@@ -54,7 +54,6 @@
             android:layout_marginStart="80dp"
             android:layout_marginEnd="80dp"
             android:layout_marginBottom="30dp"
-            android:visibility="@{viewModel.isNextAvailable ? View.VISIBLE : View.GONE}"
             android:text="@string/next" />
 
     </LinearLayout>
